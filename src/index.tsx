@@ -3,10 +3,21 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import { BrowserRouter as Router } from 'react-router-dom';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+// Authentication context
+import { AuthContextProvider } from './auth_context';
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+// components
+import Navigation from './components/Navigation';
+
+export const SERVIDOR = '//s.clbs9571.now.sh';
+export const PUBLIC = '//s-cu4i3le1z.now.sh';
+
+ReactDOM.render(
+	<AuthContextProvider>
+		<Router>
+			<Navigation />
+			<App />
+		</Router>
+	</AuthContextProvider>, document.getElementById('root'));
