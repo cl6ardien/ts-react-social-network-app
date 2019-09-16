@@ -291,6 +291,9 @@
 .panel {
   width: 100%;
   display: flex;
+  top: 0;
+  left: 0;
+  position: fixed;
   align-content: center;
   justify-content: flex-end;
   padding: 0 2em 0 2em;
