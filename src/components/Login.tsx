@@ -20,7 +20,7 @@ const Login: React.FC = () => {
 	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 
-		await fetch(`${SERVIDOR}/api/users/login`, {
+		await fetch(`https:${SERVIDOR}/api/users/login`, {
 			method: 'POST',
 			body: JSON.stringify(fields),
 			headers: { "Content-Type": "application/json" }

@@ -14,7 +14,7 @@ import Panel from './Panel';
 import { PostI } from './Post';
 
 const Landing: React.FC = () => {
-    const { userdata } = useContext(AuthContext);
+    var { userdata } = useContext(AuthContext);
 
     const [posts, updatePosts] = useState<PostI[]>([{
         user_id :'',
@@ -26,14 +26,15 @@ const Landing: React.FC = () => {
     }]);
 
     useEffect(() => {
-      fetch(`//${SERVIDOR}/api/posts`, {
-            method: 'GET'
-      })
-      .then(res => res.json())
-      .catch(err => console.error(err))
-      .then(posts => {
-          updatePosts(posts);
-      });
+    	
+		fetch(`//${SERVIDOR}/api/posts`, {
+		    method: 'GET'
+		})
+		.then(res => res.json())
+		.catch(err => console.error(err))
+		.then(posts => {
+		  updatePosts(posts);
+		});
     }, []);
 
     useEffect(() => {
@@ -43,21 +44,23 @@ const Landing: React.FC = () => {
     return (
         <>
           <Panel />
-          { userdata.user && <NewPost /> }
+          <div className="page">
+            { userdata.user && <NewPost /> }
 
-          <div className="layout">
-          {  
-              posts.length > 1 ? (
-                posts.map((post: PostI) => (
-                    <>
-                        <Post post={post} />
-                    </>
-                ))
-              )
-              : (
-                <h1>Loading posts...</h1>
-              )
-          }
+            <div className="layout">
+            {  
+                posts.length > 1 ? (
+                  posts.map((post: PostI) => (
+                      <>
+                          <Post post={post} />
+                      </>
+                  ))
+                )
+                : (
+                  <h1>Loading posts...</h1>
+                )
+            }
+            </div>
           </div>
       </>
     );

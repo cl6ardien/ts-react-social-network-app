@@ -38,6 +38,7 @@
 }
 
 .layout {
+  margin-top: 100px;
   margin-left: 80px;
   padding: 1em;
   display: flex;
@@ -239,6 +240,7 @@
 
 
 .new_post {
+  margin-top: 80px;
   width: 100%;
   border-bottom: 1px solid rgba(0, 0, 0, .1);
   display: flex;
@@ -286,9 +288,8 @@
   }
 }
 
-
-
 .panel {
+  z-index: 4;
   width: 100%;
   display: flex;
   top: 0;
@@ -393,9 +394,6 @@
     }
   }
 
-  .new_post {
-    margin-top: 10%;
-  }
 
   .comment_section {
     display: flex;
@@ -414,5 +412,9 @@
           width: 320px !important;
         }
       }
+  }
+
+  .new_post {
+    margin-top: 120px;
   }
 }
