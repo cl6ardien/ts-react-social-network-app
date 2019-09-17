@@ -23,7 +23,7 @@ const Post: any = (props: any) => {
 
     try{
         //@ts-ignore
-        context_user_id = userdata.user.user_id;
+        context_user_id = userdata.user_id;
     } catch(err) {
         console.error(err);
     }

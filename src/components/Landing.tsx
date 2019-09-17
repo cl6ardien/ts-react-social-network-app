@@ -37,22 +37,18 @@ const Landing: React.FC = () => {
 		});
     }, []);
 
-    useEffect(() => {
-      
-    }, [userdata]);
-
     return (
         <>
           <Panel />
           <div className="page">
-            { userdata.user && <NewPost /> }
+            { !!userdata && <NewPost /> }
 
             <div className="layout">
             {  
                 posts.length > 1 ? (
                   posts.map((post: PostI) => (
                       <>
-                          <Post post={post} />
+                        <Post post={post} />
                       </>
                   ))
                 )

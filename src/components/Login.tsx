@@ -1,5 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Redirect } from 'react-router-dom';
+
+//Context
+import { AuthContext } from '../auth_context';
 
 import { SERVIDOR } from '../index';
 
@@ -8,7 +11,8 @@ interface LoginUserInput {
 	password: string;
 }
 
-const Login: React.FC = () => {
+const Login: any = (props: any) => {
+	const { login } = useContext(AuthContext);
 	const [errors, updateErrors] = useState([]);
 	const [redirect, updateRedirect] = useState<boolean>(false);
 
@@ -27,12 +31,9 @@ const Login: React.FC = () => {
 		})
 		.then(res => res.json())
 		.catch(err => console.error(err))
-		.then(res => {
+		.then(async res => {
 			if(typeof res !== "object") {
-				(async function(){
-					await localStorage.setItem('Authorization', `Bearer ${res}`);
-				}());
-
+				await login(res);
 				updateRedirect(true);
 			} else {
 				updateErrors(res);

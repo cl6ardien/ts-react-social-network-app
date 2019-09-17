@@ -11,7 +11,7 @@ const Panel: React.FC = () => {
 
     try{
     	//@ts-ignore
-    	username = userdata.user.username;
+    	username = userdata.username;
     } catch(err) {
     	console.error(err);
     }
@@ -20,7 +20,7 @@ const Panel: React.FC = () => {
 		<>
 		  <div className="panel">
 		  	<ul className="panel__items">
-		  		{ userdata.user ? (
+		  		{ !!userdata ? (
 			  			<>
 					  		<li>
 					  			<p>{ username }</p>
