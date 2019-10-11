@@ -18,20 +18,20 @@ const AuthContextProvider = (props: any) => {
 					
 					try{
 						if(decoded_token.exp * 1000 < Date.now()){ /* expired token */
-							localStorage.remove('Authorization');
+							localStorage.removeItem('Authorization');
 						} else {
 							updateUser(decoded_token);
 						}
 
 					} catch(err){
-						console.log(err);
+						//console.error(err);
 					}
 				} catch(err){
-					console.log(err);
+					//console.error(err);
 				}
 			}
 		}catch(err) {
-			console.log(err);
+			//console.error(err);
 		}
 	}
 
@@ -40,8 +40,7 @@ const AuthContextProvider = (props: any) => {
 			await updateUserData();
 		}());
 
-	});
-
+	}, []);
 
 	const login = async (token: any) => {
 		localStorage.setItem('Authorization', `Bearer ${token}`);

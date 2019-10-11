@@ -41,7 +41,10 @@ const Panel: React.FC = () => {
 					  			</Link>
 					  		</li>
 					  		<li>
-					  			<Link to="/register">
+					  			<Link to="/register" style={{
+					  				color: '#303030',
+					  				fontSize: '1.1rem'
+					  			}}>
 					  			signup
 					  			</Link>
 					  		</li>

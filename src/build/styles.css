@@ -4,7 +4,7 @@
   justify-content: space-between;
   flex-direction: column;
   align-items: center;
-  background: linear-gradient(to bottom, #355c7d, #6c5b7b, #c06c84);
+  background: linear-gradient(to bottom, #a8c0ff, #3f2b96);
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   color: #ddd;
   width: 50px;
@@ -99,9 +99,10 @@
   background: transparent;
   outline: none;
   border: none;
+  color: #cc0000;
 }
 .post_card__footer #btn-like_post:hover {
-  color: #cc0000;
+  color: #000;
 }
 
 .post_card__footer span {
@@ -153,10 +154,29 @@
   right: 3%;
 }
 .full_post .full_post__article .headline-wrapper {
+  padding-top: 2.5em;
   margin-bottom: 3em;
+}
+.full_post .full_post__article .headline-wrapper .btn-delete {
+  position: absolute;
+  top: 0;
+  left: 5%;
+  margin-right: 0.4em;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #cc0000;
+}
+.full_post .full_post__article .headline-wrapper .btn-delete:hover:after {
+  content: "delete this post";
+  align-content: left;
+  font-size: 0.8rem;
+  background: transparent;
+  color: #797979;
 }
 .full_post .full_post__article .headline-wrapper,
 .full_post .full_post__article .text-wrapper {
+  position: relative;
   text-transform: capitalize;
 }
 .full_post .full_post__article .text-wrapper p {
@@ -182,7 +202,7 @@
   border: 1px solid rgba(0, 0, 0, 0.1);
   background: transparent;
 }
-.full_post .full_post__article .comment_section .comment_section__box button {
+.full_post .full_post__article .comment_section .comment_section__box .btn-post {
   display: block;
   background: linear-gradient(to right, #00b4db, #0083b0);
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
@@ -195,6 +215,23 @@
   border: none;
   margin-right: auto;
   border-radius: 5px;
+}
+.full_post .full_post__article .comment_section .comment_section__box .single_comment {
+  text-align: left;
+  position: relative;
+  padding: 1em;
+}
+.full_post .full_post__article .comment_section .comment_section__box .single_comment .btn-delete {
+  position: absolute;
+  top: 20%;
+  right: 4%;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #cc0000;
+}
+.full_post .full_post__article .comment_section .comment_section__box .single_comment .btn-delete:hover {
+  color: #cc0000;
 }
 .full_post .full_post__article .comment_section h3 {
   text-align: center;
@@ -263,17 +300,17 @@
   z-index: 4;
   width: 100%;
   display: flex;
+  position: absolute;
   top: 0;
   left: 0;
-  position: fixed;
-  align-content: center;
   justify-content: flex-end;
-  padding: 0 2em 0 2em;
-  background: #303030;
-  color: #fff;
+  padding: 0 0.8em 0 0.8em;
+  background: #F6F1F1;
+  color: #303030;
 }
 .panel .panel__items {
   list-style: none;
+  padding: none;
 }
 .panel .panel__items li {
   margin-left: 0.8em;
@@ -281,22 +318,21 @@
 }
 .panel .panel__items li a {
   text-decoration: none;
-  color: #fff;
-  font-weight: bold;
+  color: #797979;
 }
 .panel .panel__items li a:hover {
-  color: #ddd;
+  color: #303030;
 }
 .panel .panel__items li button {
   background: transparent;
-  color: #fff;
+  color: #303030;
   outline: none;
   cursor: pointer;
   border: none;
   font-family: "Roboto Mono", monospace;
 }
 .panel .panel__items li button:hover {
-  color: #ddd;
+  color: #797979;
 }
 
 @media screen and (max-width: 500px) {
@@ -369,6 +405,40 @@
 
   .new_post {
     margin-top: 120px;
+  }
+}
+.spinner {
+  width: 40px;
+  height: 40px;
+  background-color: #333;
+  margin: 100px auto;
+  -webkit-animation: sk-rotateplane 1.2s infinite ease-in-out;
+  animation: sk-rotateplane 1.2s infinite ease-in-out;
+}
+
+@-webkit-keyframes sk-rotateplane {
+  0% {
+    -webkit-transform: perspective(120px);
+  }
+  50% {
+    -webkit-transform: perspective(120px) rotateY(180deg);
+  }
+  100% {
+    -webkit-transform: perspective(120px) rotateY(180deg) rotateX(180deg);
+  }
+}
+@keyframes sk-rotateplane {
+  0% {
+    transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+    -webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+  }
+  50% {
+    transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
+    -webkit-transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
+  }
+  100% {
+    transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+    -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
   }
 }
 

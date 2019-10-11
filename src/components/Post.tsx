@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 //Context
 import { AuthContext } from '../auth_context';
 
-import { SERVIDOR, PUBLIC } from '../index';
+import { PUBLIC } from '../index';
 
 export interface PostI {
     user_id: string;
@@ -38,8 +38,8 @@ const Post: any = (props: any) => {
             </div>
             <div className="post_card__footer">
                 {
-                    //@ts-ignore
-                    context_user_id === user_id ? (
+                    
+                    !!context_user_id === user_id ? (
                         <>
                             <button id="btn-delete_post">
                                 <svg width="12" height="13" xmlns="http://www.w3.org/2000/svg">

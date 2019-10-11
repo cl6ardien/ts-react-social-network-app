@@ -9,6 +9,7 @@ import { AuthContext } from '../auth_context';
 import NewPost from './NewPost';
 import Post from './Post';
 import Panel from './Panel';
+import Spinner from './Spinner';
 
 // interfaces
 import { PostI } from './Post';
@@ -53,7 +54,7 @@ const Landing: React.FC = () => {
                   ))
                 )
                 : (
-                  <h1>Loading posts...</h1>
+                  <Spinner />
                 )
             }
             </div>
