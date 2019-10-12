@@ -12,6 +12,12 @@ const FullPost: React.FC = (props: any) => {
 	const post_id = props.match.params.post_id;
 	//@ts-ignore
     const { userdata } = useContext(AuthContext);
+    let user_id: string = '';
+    try {
+    	user_id = userdata.user_id;
+    } catch(e) {
+    	// console.error(e);
+    }
 	const token = localStorage.getItem('Authorization');
 	const [redirect, setRedirect] = useState<boolean>(false);
 
@@ -85,7 +91,8 @@ const FullPost: React.FC = (props: any) => {
 									{post.title}
 								</h3>
 								{
-									userdata.user_id == post.user_id ? (
+									
+									user_id === post.user_id ? (
 										<>
 											<button onClick={() => handleDelete()} className="btn-delete">
 												<svg width="12" height="13" xmlns="http://www.w3.org/2000/svg">
@@ -97,6 +104,7 @@ const FullPost: React.FC = (props: any) => {
 										<>
 										</>
 									)
+									
 								}
 								
 							</div>

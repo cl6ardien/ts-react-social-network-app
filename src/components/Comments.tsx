@@ -21,6 +21,12 @@ const Comments: any = (props: any) => {
 	const { userdata } = useContext(AuthContext);
 	//@ts-ignore
 	const token: string = localStorage.getItem('Authorization');
+    let username: string = '';
+    try {
+    	username = userdata.username;
+    } catch(e) {
+    	// console.error(e);
+    }
 	const post_id = props.post_id;
 	const [body, updateComment] = useState<string>('');
 	const [comments, updateComments] = useState<CommentI[]>([{
@@ -105,7 +111,7 @@ const Comments: any = (props: any) => {
 								<li key={comment.comment_id}>
 									<div className="single_comment">
 										{
-											userdata.username == comment.username ? (
+											username === comment.username ? (
 												<button onClick={() => handleDelete()} className="btn-delete">
 													<svg width="12" height="13" xmlns="http://www.w3.org/2000/svg">
 													  <path d="M5.843 4.912L10.255.6l1.397 1.43L7.24 6.344l4.312 4.412-1.43 1.397L5.81 7.74l-4.412 4.312L0 10.622 4.412 6.31.1 1.898 1.53.5l4.313 4.412z" fill="#121212" fill-rule="nonzero"/>
